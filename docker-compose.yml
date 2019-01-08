@@ -5,3 +5,5 @@ services:
     build: ./votes/client
     ports:
       - "3000:3000"
+    volumes:
+      - ./votes/client:/app
