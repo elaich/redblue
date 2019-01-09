@@ -7,3 +7,4 @@ services:
       - "3000:3000"
     volumes:
       - ./votes/client:/app
+      - /app/node_modules

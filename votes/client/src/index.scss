@@ -1,0 +1,51 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+// Bootstrap Theming
+$theme-colors: (
+  'primary': #3db8e5,
+  'danger': #e384ba
+);
+
+@import 'node_modules/bootstrap/scss/buttons';
+@import 'node_modules/bootstrap/scss/grid';
+@import 'node_modules/bootstrap/scss/utilities/flex';
+@import 'node_modules/bootstrap/scss/utilities/display';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#app {
+  margin-top: 40px;
+}
+
+[data-cy$='-button'] {
+  padding: 40px 0;
+  cursor: pointer;
+  & h1 {
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 2px rgba(black, 0.35);
+    position: relative;
+
+    & i {
+      position: absolute;
+      right: 20px;
+      top: 7px;
+    }
+  }
+}
