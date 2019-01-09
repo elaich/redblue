@@ -1,5 +1,5 @@
 describe('A user', function() {
-  it('can visit the voting website and vote', function() {
+  it('can vote and persist his vote', function() {
     // A user visits our Red Or Blue voting site
     cy.visit('http://localhost:3000/');
     cy.server();
@@ -13,28 +13,45 @@ describe('A user', function() {
     cy.contains('Blue').should('be.visible');
 
     // He clicks on Red
-    cy.contains('Red').click();
+    cy.get('[data-cy=red-button]').click();
 
     // This should send a request to the backend
     cy.wait('@vote');
 
     // When the request resolves the browser updates
     // and show You have voted
+    cy
+      .get('[data-cy=red-button]')
+      .find('i')
+      .should('be.visible');
 
     // The user refreshes to vote again
-    //
+    cy.reload();
+
     // His vote is still there
-    //
-    // He can change his vote
-    //
-    // He clicks on Blue
-    //
+    cy
+      .get('[data-cy=red-button]')
+      .find('i')
+      .should('be.visible');
+
+    // He can change his vote so he clicks on Blue
+    cy.get('[data-cy=blue-button]').click();
+
     // His vote is updated
-    //
+    cy
+      .get('[data-cy=blue-button]')
+      .find('i')
+      .should('be.visible');
+    cy.get('[data-cy=red-button] i').should('not.exist');
+
     // He refreshes
-    //
+    cy.reload();
+
     // His vote is still there
-    //
+    cy
+      .get('[data-cy=blue-button]')
+      .find('i')
+      .should('be.visible');
     // Satisfied he goes back to sleep
   });
 });
