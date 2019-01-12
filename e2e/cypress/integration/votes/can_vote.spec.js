@@ -4,7 +4,7 @@ describe('A user', function() {
     cy.visit('http://localhost:3000/');
     cy.server();
 
-    cy.route('POST', '/vote').as('vote');
+    cy.route('POST', '/api/vote').as('vote');
     // He notices the title mentions Red Or Blue
     cy.title().should('equal', 'Red Or Blue');
 

@@ -11,11 +11,16 @@ class App extends Component {
     vote: null,
   };
 
+  componentDidMount() {
+    axios.get('/api/vote').then(response => this.setState(response.data));
+  }
+
   render() {
     const {vote} = this.state;
     const options = [
       {
         text: 'Red',
+        vote: RED,
         className:
           'btn btn-block btn-danger ' + (vote === BLUE ? 'disabled' : ''),
         'data-cy': 'red-button',
@@ -23,6 +28,7 @@ class App extends Component {
       },
       {
         text: 'Blue',
+        vote: BLUE,
         className:
           'btn btn-block btn-primary ' + (vote === RED ? 'disabled' : ''),
         'data-cy': 'blue-button',
@@ -42,11 +48,12 @@ class App extends Component {
   }
 
   option = props => {
-    return <Option onClick={() => this.onVote(props.text)} {...props} />;
+    const {text, vote} = props;
+    return <Option onClick={() => this.vote({text, vote})} {...props} />;
   };
 
-  onVote = vote => {
-    axios.post('/vote').then();
+  vote = vote => {
+    axios.post('/api/vote', vote).then(() => this.setState(vote));
   };
 }
 

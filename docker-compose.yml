@@ -8,3 +8,9 @@ services:
     volumes:
       - ./votes/client:/app
       - /app/node_modules
+  voting-server:
+    build: ./votes/server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./votes/server:/app
