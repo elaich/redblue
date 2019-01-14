@@ -5,14 +5,14 @@ services:
     build: ./votes/client
     ports:
       - "3000:3000"
-    volumes:
-      - ./votes/client:/app
-      - /app/node_modules
+        #    volumes:
+        #- ./votes/client:/app
+        #- /app/node_modules
   voting-server:
     build: ./votes/server
     ports:
       - "9229:9229"
-    volumes:
-      - ./votes/server:/app
+        #volumes:
+        #- ./votes/server:/app
   redis:
     image: redis
