@@ -8,6 +8,10 @@ pipeline {
       }
     }
 
+    agent {
+      docker {image: 'cypress/base:10'}
+    }
+    
     stage('test') {
       steps {
         sh './test.sh'
