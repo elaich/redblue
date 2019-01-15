@@ -11,7 +11,10 @@ pipeline {
 
     stage('test') {
       agent {
-        docker { image 'node:11-alpine' }
+        docker { 
+          image 'cypress/base:10' 
+          args '--network=redblue_master_default'
+        }
       }
       steps {
         sh './test.sh'
