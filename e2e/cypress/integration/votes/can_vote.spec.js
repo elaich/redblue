@@ -1,7 +1,7 @@
 describe('A user', function() {
   it('can vote and persist his vote', function() {
     // A user visits our Red Or Blue voting site
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
     cy.server();
 
     cy.route('POST', '/api/vote').as('vote');

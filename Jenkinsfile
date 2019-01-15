@@ -4,6 +4,7 @@ pipeline {
     stage('build') {
       steps {
         sh 'docker-compose --version'
+        sh 'docker-compose build'
         sh 'docker-compose -f docker-compose-ci.yml up -d'
       }
     }
