@@ -9,9 +9,6 @@ pipeline {
     }
 
     stage('test') {
-      agent {
-        docker {image 'cypress/base:10'}
-      }
       steps {
         sh './test.sh'
       }
