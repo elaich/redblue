@@ -10,6 +10,9 @@ pipeline {
     }
 
     stage('test') {
+      agent {
+        docker { image 'node:11-alpine' }
+      }
       steps {
         sh './test.sh'
       }
