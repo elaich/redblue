@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh 'docker-compose --version'
         sh 'docker-compose build'
-        sh 'docker-compose -f docker-compose-ci.yml up -d'
+        sh 'docker-compose up -d'
       }
     }
 
@@ -13,8 +13,7 @@ pipeline {
       agent {
         docker { 
           image 'cypress/base:10' 
-          args '--network=redblue_master_default'
-        }
+          args '--network=red-blue_voting'
       }
       steps {
         sh './test.sh'
