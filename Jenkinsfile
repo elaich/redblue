@@ -3,9 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'docker-compose --version'
-        sh 'docker-compose build'
-        sh 'docker-compose up -d'
+        sh 'docker-compose up -d --build'
       }
     }
 
@@ -13,7 +11,7 @@ pipeline {
       agent {
         docker { 
           image 'cypress/base:10' 
-          args '--network=red-blue_voting'
+          args '--network=redblue_master_voting'
         }
       }
       steps {
