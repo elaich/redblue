@@ -14,6 +14,7 @@ pipeline {
         docker { 
           image 'cypress/base:10' 
           args '--network=red-blue_voting'
+        }
       }
       steps {
         sh './test.sh'
