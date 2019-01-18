@@ -6,7 +6,15 @@ const redis = require('redis');
 const app = express();
 
 const REDIS_URL = process.env.NODE_ENV !== 'test' ? 'redis' : 'localhost';
-const client = redis.createClient(6379, REDIS_URL);
+let client;
+const interval = setInterval(() => {
+  try {
+    client = redis.createClient(6379, REDIS_URL);
+    clearInterval(interval);
+  } catch (e) {
+    console.error(`Redis Connection Error ${e}`);
+  }
+}, 1000);
 
 app.use(bodyParser.json());
 
