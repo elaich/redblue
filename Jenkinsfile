@@ -18,5 +18,14 @@ pipeline {
         sh './test.sh'
       }
     }
+
+    stage('deploy') {
+      def remote = [:]
+      remote.user = "maro"
+      remote.host = "redblue.doremicraft.com"
+      steps {
+        sshCommand remote:remote command: 'ls -al'
+      }
+    }
   }
 }
