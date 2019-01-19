@@ -18,5 +18,11 @@ pipeline {
         sh './test.sh'
       }
     }
+
+    stage('deploy') {
+      steps {
+        sh 'cat deploy.sh | ssh maro@redblue.doremicraft.com'
+      }
+    }
   }
 }
