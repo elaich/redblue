@@ -3,20 +3,11 @@ version: '3'
 services:
   voting-client:
     build: ./votes/client
-    ports:
-      - "3000:3000"
     environment:
       - HOST=voting-client
-    networks:
-      - voting
+    ports:
+      - "3000:3000"
   voting-server:
     build: ./votes/server
-    networks:
-      - voting
   redis:
     image: redis
-    networks:
-      - voting
-
-networks:
-  voting:

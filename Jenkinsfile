@@ -11,7 +11,7 @@ pipeline {
       agent {
         docker { 
           image 'cypress/base:10' 
-          args '--network=redblue_master_voting'
+          args '--network=redblue_master_default'
         }
       }
       steps {

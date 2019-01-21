@@ -2,5 +2,16 @@ version: '3'
 
 services:
   voting-client:
-    environment:
-      - HOST=0.0.0.0
+    command: npm run build
+    volumes:
+      - voting-client-www:/app/build
+
+  web:
+    build: ./web
+    ports:
+      - "80:80"
+    volumes:
+      - voting-client-www:/www
+
+volumes:
+  voting-client-www:

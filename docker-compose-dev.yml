@@ -2,8 +2,6 @@ version: '3'
 
 services:
   voting-client:
-    ports:
-      - "3000:3000"
     volumes:
       - ./votes/client:/app
       - /app/node_modules
