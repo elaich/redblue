@@ -20,5 +20,4 @@ current_commit=`git log -n 1 --format=%H`
 git reset --hard $current_commit
 
 docker-compose down
-docker-compose -f docker-compose.yml -f docker-compose-prod.yml up --build --detach
-echo "Deployed"
+docker-compose -f compose/base.yml -f compose/prod.yml up --build -d

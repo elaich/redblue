@@ -7,7 +7,7 @@ services:
       - voting-client-www:/app/build
 
   web:
-    build: ./web
+    build: ../web
     ports:
       - "80:80"
     volumes:
