@@ -19,5 +19,4 @@ echo "Updated Repository"
 current_commit=`git log -n 1 --format=%H`
 git reset --hard $current_commit
 
-docker-compose down
 docker-compose -f compose/base.yml -f compose/prod.yml up --build -d
