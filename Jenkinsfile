@@ -21,7 +21,6 @@ pipeline {
 
     stage('deploy') {
       steps {
-        sh 'whoami'
         sh 'cat deploy.sh | ssh maro@redblue.doremicraft.com'
       }
     }
