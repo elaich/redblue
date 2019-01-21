@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
+        sh 'docker-compose -f compose/base.yml down'
         sh 'docker-compose -f compose/base.yml up -d --build'
       }
     }
