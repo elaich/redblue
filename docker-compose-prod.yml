@@ -3,4 +3,4 @@ version: '3'
 services:
   voting-client:
     environment:
-      - HOST=voting-client
+      - HOST=0.0.0.0
