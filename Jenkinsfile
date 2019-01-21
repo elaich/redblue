@@ -21,7 +21,7 @@ pipeline {
 
     stage('deploy') {
       steps {
-        sh 'cat deploy.sh | ssh maro@redblue.doremicraft.com'
+        sh 'cat deploy.sh | ssh maro@178.62.118.195'
       }
     }
   }
